@@ -11,6 +11,11 @@ public class LcdDisplayImpl implements LcdDisplay {
     private static final String REMOVE_SPACE_REGEX = "\\s+";
     private static final String REPLACEMENT_STRING = "";
 
+    /**
+     * Method to validate and display number on screen
+     *
+     * @param strNumber : user provided string number
+     */
     @Override
     public void displayNumber(String strNumber) {
 
@@ -26,6 +31,11 @@ public class LcdDisplayImpl implements LcdDisplay {
         }
     }
 
+    /**
+     * Method responsible to display provided numbers on screen
+     *
+     * @param strNumber : user provided string number
+     */
     private void displayNumberOnScreen(String strNumber) {
         int numberOfChars = strNumber.length();
         int[][][] numCharsArray = getNumCharsArray(numberOfChars, strNumber);
@@ -45,6 +55,12 @@ public class LcdDisplayImpl implements LcdDisplay {
         }
     }
 
+    /**
+     * Method to get number chars array for the string number
+     *
+     * @param numberOfChars : length of the string number provided
+     * @param strNumber     : user provided string number
+     */
     public int[][][] getNumCharsArray(int numberOfChars, String strNumber) {
         final int[][] one = {{0, 0, 0}, {0, 0, 1}, {0, 0, 1}};
         final int[][] two = {{0, 1, 0}, {0, 1, 1}, {1, 1, 0}};
@@ -75,6 +91,11 @@ public class LcdDisplayImpl implements LcdDisplay {
         return chars;
     }
 
+    /**
+     * Method to validate the input number provided, if it's valid integer
+     *
+     * @param strNumber : user provided string number
+     */
     public boolean validateInputNumber(String strNumber) {
         if (strNumber == null) {
             LOGGER.error("The input value provided is null");
